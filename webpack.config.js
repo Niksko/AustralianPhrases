@@ -40,7 +40,7 @@ var frontendConfig = assign({}, defaultConfig, {
       {
         test: /\.js$/,
         include: path.join(__dirname, 'src', 'frontend'),
-        loaders: ['react-hot', 'babel?stage=0&plugins[]=' + path.join(__dirname, 'relayPlugin')]
+        loaders: ['react-hot', 'babel?stage=0&plugins[]=' + path.join(__dirname, 'relayPlugin&presets=es2015')]
       },
       {
         test: /\.scss$/,
@@ -85,7 +85,7 @@ var serverConfig = assign({}, defaultConfig, {
         // transpile all .js files using babel
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel?stage=0'
+        loader: 'babel?stage=0&presets=es2015'
       }
     ]
   }
