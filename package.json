@@ -1,7 +1,7 @@
 {
-  "name": "relay-skeleton",
-  "version": "0.0.1",
-  "description": "A minimal React, Relay, GraphQL skeleton.",
+  "name": "AustralianPhrases",
+  "version": "0.1.0",
+  "description": "A website that displays randomly generated Australian phrases.",
   "main": "gulpfile.babel.js",
   "scripts": {
     "start": "gulp"
@@ -36,18 +36,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/fortruce/relay-skeleton.git"
+    "url": "https://github.com/niksko/AustralianPhrases.git"
   },
   "keywords": [
     "react",
     "relay",
-    "skeleton",
     "webpack"
   ],
-  "author": "fortruce",
-  "license": "ISC",
+  "author": "Niksko",
+  "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/fortruce/relay-skeleton/issues"
+    "url": "https://github.com/niksko/AustralianPhrases/issues"
   },
-  "homepage": "https://github.com/fortruce/relay-skeleton"
+  "homepage": "https://github.com/niksko/AustralianPhrases"
 }
