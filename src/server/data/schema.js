@@ -14,6 +14,12 @@ import {
   nodeDefinitions
 } from 'graphql-relay';
 
+import {
+  PartOfSpeech,
+  Word,
+  Template
+} from './database.js';
+
 /**
  * The first argument defines the way to resolve an ID to its object.
  * The second argument defines the way to resolve a node object to its GraphQL type.
@@ -21,12 +27,22 @@ import {
 var { nodeInterface, nodeField } = nodeDefinitions(
   (globalId) => {
     let { id, type } = fromGlobalId(globalId);
-    if (type === 'Example')
-      return example;
-    return null;
+    if (type === 'Word') {
+      return getWord(id);
+    } else if (type === 'Template') {
+      return getTemplate(id);
+    } else if (type === 'PartOfSpeech') {
+      return getPartOfSpeech(id);
+    } else
+      return null;
   },
   (obj) => {
-    return exampleType;
+    if (obj instanceof Word) {
+      return WordType;
+    } else if (obj instanceof Template) {
+      return TemplateType;
+    } else
+      return null;
   }
 );
 
@@ -35,7 +51,7 @@ var { nodeInterface, nodeField } = nodeDefinitions(
  */
 
 var PartsOfSpeechType = new GraphQLEnumType({
-  name: 'PartsOfSpeech',
+  name: 'PartOfSpeech',
   description: 'An enumeration of the parts of speech, used to fill in templates so that they make sense',
   values: {
     VERB: {value: 0},
@@ -55,12 +71,13 @@ var PartsOfSpeechType = new GraphQLEnumType({
  */
 var WordType = new GraphQLObjectType({
   name: 'Word',
-  description: 'A single word used to fill in templates',
+  description: 'A single word or phrase used to fill in templates',
   fields: () => ({
     id: globalIdField('Word'),
     text: { 
       type: GraphQLString,
-      description: 'The word itself that will be filled into templates'
+      description: 'The word itself that will be filled into templates',
+      resolve: 
     },
     nsfw: { 
       type: GraphQLBoolean,
@@ -68,28 +85,8 @@ var WordType = new GraphQLObjectType({
     },
     partOfSpeech: {
       type: new GraphQLList(PartsOfSpeechType),
-      description: 'The part of speech that this word belongs to'
+      description: 'The parts of speech that this word belongs to'
     }
-  }),
-  interfaces: [ nodeInterface ]
-});
-
-/**
- * Define a phrase type that will also be used to fill in templates
- */
-var PhraseType = new GraphQLObjectType({
-  name: 'Phrase',
-  description: 'A short phrase that is used to fill in templates',
-  fields: () => ({
-    id: globalIdField('Phrase'),
-    text: {
-      type: GraphQLString,
-      description: 'The phrase itself that will be filled into templates'
-    },
-    nsfw : {
-      type: GraphQLBoolean,
-      description: 'True if the phrase is NSFW, false otherwise'
-    },
   }),
   interfaces: [ nodeInterface ]
 });
@@ -117,9 +114,12 @@ var queryType = new GraphQLObjectType({
   name: 'Query',
   fields: () => ({
     node: nodeField,
-    example: {
-      type: exampleType,
-      resolve: () => example
+    template: {
+      type: TemplateType,
+      resolve: () => Template.find((err, templates) => {
+        if (err) reject (err)
+        else resolve(templates)
+      });
     }
   })
 });
