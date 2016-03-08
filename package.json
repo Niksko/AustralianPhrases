@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "description": "A website that displays randomly generated Australian phrases.",
   "dependencies": {
-    "gulp": "^3.9.1"
+    "gulp": "^3.9.1",
+    "mongoose": "^4.4.6"
   },
   "devDependencies": {
     "babel-core": "^6.6.5",
