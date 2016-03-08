@@ -3,14 +3,8 @@
   "version": "0.1.0",
   "description": "A website that displays randomly generated Australian phrases.",
   "dependencies": {
-    "@risingstack/graffiti": "^3.0.2",
-    "express-graphql": "^0.3.0",
-    "graphql": "^0.4.2",
-    "mongoose": "^4.4.6"
   },
   "devDependencies": {
-    "express": "^4.13.3",
-    "gulp": "^3.9.0"
   },
   "repository": {
     "type": "git",
@@ -21,5 +15,6 @@
   "bugs": {
     "url": "https://github.com/niksko/AustralianPhrases/issues"
   },
-  "homepage": "https://github.com/niksko/AustralianPhrases"
+  "homepage": "https://github.com/niksko/AustralianPhrases",
+  "private": true
 }
