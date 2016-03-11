@@ -1,8 +1,10 @@
 "use strict"
 
 import gulp from "gulp";
+import babel from "gulp-babel";
 
-const dirs = {
-  src: 'src',
-  dest: 'build'
-};
+gulp.task("default", () => {
+  gulp.src("src")
+    .pipe(babel())
+    .pipe(gulp.dest("dist"));
+});
