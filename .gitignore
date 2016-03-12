@@ -56,3 +56,5 @@ bower_components
 .bower-registry
 .bower-tmp
 
+# Ignore the webpack build directory
+build/
