@@ -1,6 +1,6 @@
 import express from 'express';
 import { json } from 'body-parser';
-import graffiti from '../';
+import graffiti from '@risingstack/graffiti';
 import schema from './schema';
 
 const app = express();

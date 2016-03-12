@@ -1,10 +1,11 @@
 import webpack from 'webpack';
 import path from 'path';
+import nodeExternals from 'webpack-node-externals';
 
 const config = {
-  context: path.join(__dirname, 'src', 'server'),
-  entry: 'index.js',
+  entry: path.join(__dirname, 'src', 'server', 'index.js'),
   target: 'node',
+  externals: [nodeExternals()],
   output: {
     path: path.resolve(__dirname, 'build'),
     filename: 'index.bundle.js'

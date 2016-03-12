@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const PartOfSpeechEnum = [
+export const PartOfSpeechEnum = [
   "NOUN",
   "PRONOUN",
   "VERB",
@@ -11,7 +11,7 @@ const PartOfSpeechEnum = [
   "CONJUNCTION",
   "INTERJECTION",
   "PHRASE"
-]
+];
 
 const WordSchema = new mongoose.Schema({
   text: {
@@ -26,7 +26,4 @@ const WordSchema = new mongoose.Schema({
   }
 });
 
-const Word = mongoose.Model('Word', WordSchema);
-
-export PartOfSpeechEnum;
-export default Word;
+export const Word = mongoose.Model('Word', WordSchema);
