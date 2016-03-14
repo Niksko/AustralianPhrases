@@ -1,3 +1,5 @@
+import { config } from 'dotenv';
+config();
 import express from 'express';
 import { json } from 'body-parser';
 import graffiti from '@risingstack/graffiti';

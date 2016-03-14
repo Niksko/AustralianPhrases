@@ -58,3 +58,6 @@ bower_components
 
 # Ignore the webpack build directory
 build/
+
+# Ignore dotenv file
+.env
