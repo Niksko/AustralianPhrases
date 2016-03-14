@@ -3,7 +3,7 @@ import path from 'path';
 import nodeExternals from 'webpack-node-externals';
 
 const config = {
-  entry: path.join(__dirname, 'src', 'server', 'index.js'),
+  entry: ['babel-polyfill', path.join(__dirname, 'src', 'server', 'index.js')],
   target: 'node',
   externals: [nodeExternals()],
   output: {
