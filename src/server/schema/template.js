@@ -10,6 +10,6 @@ const TemplateSchema = new mongoose.Schema({
   }
 });
 
-const Template = mongoose.Model('Template', TemplateSchema)
+const Template = mongoose.model('Template', TemplateSchema)
 
 export default Template

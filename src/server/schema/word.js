@@ -26,4 +26,4 @@ const WordSchema = new mongoose.Schema({
   }
 });
 
-export const Word = mongoose.Model('Word', WordSchema);
+export const Word = mongoose.model('Word', WordSchema);
