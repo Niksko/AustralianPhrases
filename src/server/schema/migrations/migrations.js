@@ -15,7 +15,7 @@ export function upgrade(){
   }));
 
   words.push(new Word({
-    text: "frothies",
+    text: "frothy",
     partsOfSpeech: ["NOUN"],
     nsfw: false
   }));
@@ -37,25 +37,79 @@ export function upgrade(){
     partsOfSpeech: ["ADJECTIVE"],
     nsfw: true
   }));
+
+  words.push(new Word ({
+    text: "bloody",
+    partsOfSpeech: ["ADJECTIVE"],
+    nsfw: false
+  }));
+
+  let templates = [];
+
+  templates.push(new Template({
+    members: [
+      "Top",
+      "NOUN"
+    ],
+    nsfw: false
+  }));
+
+  templates.push(new Template({
+    members: [
+      "ADJECTIVE",
+      "ADJECTIVE",
+      "NOUN"
+    ],
+    nsfw: false
+  }));
+
+  templates.push(new Template({
+    members: [
+      "Get a",
+      "NOUN",
+      "up ya,",
+      "NOUN"
+    ],
+    nsfw: false
+  }))
+
+  // Save these to the database
+  words.forEach((word) => ({
+    word.save((err, result) => ({
+      if (err) {
+        console.log(err);
+      }
+    }));
+  }));
+
+  templates.forEach((word) => ({
+    template.save((err, result) => ({
+      if (err) {
+        console.log(err);
+      }
+    }));
+  }));
+
 };
+
 
 export function downgrade(){
   // Drop the word and the template collections
-  mongoose.connection.db.dropCollection('Word', function(err, result){
+  mongoose.connection.db.dropCollection('Word', (err, result) => ({
     if (err) {
       console.log(err);
     }
     else {
       console.log('Successfully dropped the Word collection')
     }
-  });
+  }));
 
-  mongoose.connection.db.dropCollection('Template', function(err, result){
+  mongoose.connection.db.dropCollection('Template', (err, result) => ({
     if (err) {
       console.log(err);
     }
     else {
       console.log('Successfully dropped the Template collection')
     }
-  });
+  }));
 };
