@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "description": "A website that displays randomly generated Australian phrases.",
   "scripts": {
-    "build": "webpack"
+    "build": "webpack",
+    "start": "node build/index.bundle.js"
   },
   "dependencies": {
     "@risingstack/graffiti": "^3.0.2",
