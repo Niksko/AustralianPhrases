@@ -83,7 +83,7 @@ function upgrade(){
     });
   });
 
-  templates.forEach((word) => {
+  templates.forEach((template) => {
     template.save((err, result) => {
       if (err) {
         console.log(err);
