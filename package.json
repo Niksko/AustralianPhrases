@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "A website that displays randomly generated Australian phrases.",
   "scripts": {
-    "build": "webpack",
+    "build": "webpack; gulp",
     "start": "node build/index.bundle.js"
   },
   "dependencies": {
