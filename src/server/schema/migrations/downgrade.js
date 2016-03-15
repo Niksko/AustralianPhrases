@@ -1,6 +1,7 @@
 import dotenv from 'dotenv';
 import {Word} from '../word';
 import Template from '../template';
+import mongoose from 'mongoose';
 dotenv.config();
 
 mongoose.connect(process.env.MONGO_URI);
