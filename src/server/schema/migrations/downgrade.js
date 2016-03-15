@@ -1,6 +1,6 @@
 import dotenv from 'dotenv';
-import {Word} from './word';
-import Template from './template';
+import {Word} from '../word';
+import Template from '../template';
 dotenv.config();
 
 mongoose.connect(process.env.MONGO_URI);
@@ -24,4 +24,6 @@ function downgrade(){
       console.log('Successfully dropped the Template collection')
     }
   });
-}();
+};
+
+downgrade();
