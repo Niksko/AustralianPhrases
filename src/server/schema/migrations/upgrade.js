@@ -21,7 +21,7 @@ function upgrade(){
     nsfw: false
   }));
 
-  words.pusn(new Word({
+  words.push(new Word({
     text: "mate",
     partsOfSpeech: ["NOUN"],
     nsfw: false
