@@ -14,6 +14,7 @@ const config = {
     loaders: [
     {
       test: /\.js$/,
+      exclude: path.resolve(__dirname, "src/server/schema/migrations"),
       loader: 'babel-loader',
       query: {
         presets: ['es2015']
