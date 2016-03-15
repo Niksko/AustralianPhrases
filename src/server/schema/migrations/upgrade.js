@@ -74,20 +74,20 @@ function upgrade(){
   }))
 
   // Save these to the database
-  words.forEach((word) => ({
-    word.save((err, result) => ({
+  words.forEach((word) => {
+    word.save((err, result) => {
       if (err) {
         console.log(err);
       }
-    }));
-  }));
+    });
+  });
 
-  templates.forEach((word) => ({
-    template.save((err, result) => ({
+  templates.forEach((word) => {
+    template.save((err, result) => {
       if (err) {
         console.log(err);
       }
-    }));
-  }));
+    });
+  });
 
 }();
